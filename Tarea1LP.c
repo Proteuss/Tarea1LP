@@ -9,16 +9,17 @@ int main(int argc, char **argv)
 	printf("holiwiiu %d %s jorgito\n", argc, argv[1]);
 	
 	FILE *colourInput;
-	colourInput = fopen("colours.txt", "r");
+    colourInput = fopen("colours.txt", "r");
 	char *nombre=(char *)malloc(sizeof(char)*30);
 	int rojo;
 	int verde;
 	int azul;
 	linkedList *wachalomo=newList();
 	while (fscanf(colourInput,"%s\n", nombre) == 1){
-		fscanf(colourInput,"%d\n%d\n%d\n\n", &rojo, &verde, &azul);}
-		colour *cloro=newColour(nombre,rojo,verde,azul);
+		fscanf(colourInput,"%d\n%d\n%d\n\n", &rojo, &verde, &azul);
+		colour *cloro = newColour(nombre,rojo,verde,azul);
 		append(wachalomo,cloro);
+	    }
 	fclose(colourInput);
 	if(argc==6 && strcmp(argv[1],"-i")==0){
 		colour *insertion=newColour(argv[2],atoi(argv[3]),atoi(argv[4]),atoi(argv[5]));

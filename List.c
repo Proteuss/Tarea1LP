@@ -26,15 +26,14 @@ linkedList *newList(){
 
 void append(linkedList *lista, colour *datos){
 	listNode *puntero;
-	if(lista->size==0){
-		puntero = newNode(datos);
+    puntero = newNode(datos);
+	if((lista->size) == 0){
 		lista -> last = puntero;
 		lista -> first = puntero;
 		lista -> curr = puntero;
 		lista -> size++;
 		return;
 		}
-	puntero = newNode(datos);
 	lista -> last -> next = puntero;
 	puntero -> prev = lista -> last;
 	lista -> last = puntero;
@@ -76,7 +75,15 @@ void delete(linkedList *lista, char *color){
 				free(lista -> curr);
 				lista -> curr = aux;
 				lista -> size--;
-				break;}}}return;} //this line is art
+				return;
+                }	
+			}
+		else{
+            lista -> curr = lista -> curr -> next;
+		    }
+        }
+    return;
+    }
 				 
 void next(linkedList *lista){
 	if(lista->curr==lista->last){return;}
